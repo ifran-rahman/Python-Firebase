@@ -52,8 +52,11 @@ db = firebase.database()
 # db.child("People").push(data)
 
 #db.child("people").child("-MVIRPe7QGX69B6d1Fby").update({'age':51})
+# elapsedtime=db.child("People").child("Abdomen_1").get()
+# abdomen=db.child("People").child("Abdomen_1").get()
+# print(elapsedtime)
 
-people=db.child("People").get()
+
 # for person in people.each():
 #     print(person.val())
 #     print(person.key())
@@ -65,8 +68,12 @@ people=db.child("People").get()
 
 #Read
 
-people=db.child("people").get()
-print(people.val())
+
+people=db.child("People").child(2).child("Abdomen_1").get()
+#print(people.val())
+for person in people.each():
+    print(person.val())
+    print(person.key())
 
 
 

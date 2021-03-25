@@ -1,5 +1,6 @@
-
 import pyrebase
+import matplotlib.pyplot as plt
+
 
 firebaseConfig = {"apiKey": "AIzaSyCfuQ46q09FozGesUxT3ZakA_7XhGrnrUM",
   "authDomain": "fir-course-56a13.firebaseapp.com",
@@ -88,7 +89,11 @@ for ecg in ECG1.each():
     elapsedtime.append(x.val())
     abdomenlist.append(y.val())
 
-print(x,y)
+    plt.title("ECG graph")
+    plt.xlabel("Elapsed Time")
+    plt.ylabel("Abdomen")
+    plt.plot(elapsedtime, abdomenlist, color="blue")
+    plt.show()
 
 
     #print(y.val())

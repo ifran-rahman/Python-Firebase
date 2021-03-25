@@ -1,3 +1,4 @@
+
 import pyrebase
 
 firebaseConfig = {"apiKey": "AIzaSyCfuQ46q09FozGesUxT3ZakA_7XhGrnrUM",
@@ -68,15 +69,32 @@ db = firebase.database()
 
 #Read
 
+# list1 = []
+# people=db.child("People").child(2).child("Abdomen_1").get()
+# #print(people.val())
 
-people=db.child("People").child(2).child("Abdomen_1").get()
-#print(people.val())
-for person in people.each():
-    print(person.val())
-    print(person.key())
+elapsedtime = []
+abdomenlist = []
+
+ECG1 = db.child("ECG1").get()
+
+for ecg in ECG1.each():
+
+    ecgkey = ecg.key()
+
+    x = db.child("ECG1").child(ecgkey).child("Elapsed time").get()
+    y = db.child("ECG1").child(ecgkey).child("Abdomen_1").get()
+
+    elapsedtime.append(x.val())
+    abdomenlist.append(y.val())
+
+print(x,y)
 
 
+    #print(y.val())
+    #list1.append(y.val())
 
+#print(list1)
 
 
 
